@@ -1,0 +1,116 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>软件工程第一次作业</title>
+<style>
+    #main {
+        width: 300px;
+        margin: 100px auto;
+    }
+    
+    #main input {
+        width: 291px;
+        margin-bottom: 2px;
+        height: 30px;
+        outline: none;
+    }
+    
+    #main button {
+        width: 71px;
+        height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    html {
+        background: gold;
+        height: 100%;
+    }
+</style></head>
+
+ 
+<body>
+    <div id="main">
+	<p style="
+    	text-align: center;
+    	font-size: 30px;
+">832101304
+    </p>
+<p style="
+    	text-align: center;
+    	font-size: 30px;
+">朱润东 </p>
+        <input type="text" name="number" class="operation">
+        <input type="text" name="number" class="result">
+        <div id="buttons">
+            <button onclick="empty()" value="清零">清零</button>
+            <button onclick="square()" value="平方">平方</button>
+            <button onclick="sqrt()" value="开方">开方</button>
+            <button onclick="insert('/')" value="/">/</button>
+            <button onclick="insert(7)" value="7">7</button>
+            <button onclick="insert(8)" value="8">8</button>
+            <button onclick="insert(9)" value="9">9</button>
+            <button onclick="insert('*')" value="*">x</button>
+            <button onclick="insert(4)" value="4">4</button>
+            <button onclick="insert(5)" value="5">5</button>
+            <button onclick="insert(6)" value="6">6</button>
+            <button onclick="insert('-')" value="-">-</button>
+            <button onclick="insert(1)" value="1">1</button>
+            <button onclick="insert(2)" value="2">2</button>
+            <button onclick="insert(3)" value="3">3</button>
+            <button onclick="insert('+')" value="+">+</button>
+            <button onclick="back()" value="<">&lt;</button>
+            <button onclick="insert(0)" value="0">0</button>
+            <button onclick="insert('.')" value=".">.</button>
+            <button onclick="result()" value="=">=</button>
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        var ope = document.querySelector('.operation'); //运算框
+        var res = document.querySelector('.result'); //结果框
+        var btn = document.querySelectorAll('button');
+ 
+        // 注册事件
+        function insert(num) {
+            // 传参
+            ope.value = ope.value + num;
+        }
+ 
+        function empty() {
+            // 清空运算框和结果框的文字
+            ope.value = null;
+            res.value = null;
+        }
+ 
+        function back() {
+            // 删除文本框的一个字符  通过内置对象slice截取字符串
+            let exp = ope.value;
+            ope.value = exp.slice(0, exp.length - 1);
+        }
+ 
+        function result() {
+            if (ope.value == '') {
+                alert('请输入计算内容');
+            } else {
+                // eval() 函数可计算某个字符串，并执行其中的的 JavaScript 代码
+                res.value = eval(ope.value);
+            }
+        }
+ 
+        function square() {
+            let squ = ope.value;
+            // 通过pow() 方法可返回 x 的 y 次幂的值
+            res.value = Math.pow(squ, 2);
+        }
+ 
+        function sqrt() {
+            let sqr = ope.value;
+            // 通过sqtr方法 返回一个数的平方根
+            res.value = Math.sqrt(sqr);
+        }
+    </script>
+
+ 
+</body></html>
